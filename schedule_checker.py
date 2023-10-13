@@ -70,23 +70,57 @@ def transform_event_data(original_data):
 
     return transformed_data
 
-# Transform the data
-transformed_data = transform_event_data(original_data)
+def is_sunday_pacific_time(date_str):
+    """
+    Check if the given UTC date string corresponds to a Sunday in Pacific Time.
+    
+    :param date_str: str, an ISO formatted date string.
+    :return: bool, True if it's Sunday in Pacific Time, False otherwise.
+    """
+    # Parse the ISO date string to a datetime object
+    utc_time = datetime.fromisoformat(date_str.replace("Z", "+00:00"))
+    
+    # Convert UTC time to Pacific Time
+    pacific_time = utc_time.astimezone(pytz.timezone("America/Los_Angeles"))
+    
+    # Check if the day of the week is Sunday
+    return pacific_time.weekday() == 6
 
-# Print or save the transformed data
-print(json.dumps(transformed_data, indent=4))
+def extract_sunday_games_from_transformed_data(transformed_data):
+    sunday_games = {"events": []}
+
+    for event in transformed_data["events"]:
+        # Check if the game is on a Sunday Pacific Time
+        if is_sunday_pacific_time(event["date"]):
+            sunday_games["events"].append(event)
+    
+    return sunday_games
 
 def save_to_file(data, filename):
     """Save the provided data to a JSON file."""
     with open(filename, 'w') as outfile:
         json.dump(data, outfile, indent=4)
 
-# ... [rest of your code, including the fetching and transformation]
+# Transform the full data
+transformed_data = transform_event_data(original_data)
 
-# Save the transformed data to a file in current directory, and store the filename
+# Extract Sunday-only games from the transformed data
+sunday_games = extract_sunday_games_from_transformed_data(transformed_data)
+
+# Print the transformed data
+print("Full week schedule \n", json.dumps(transformed_data, indent=4))
+print("Sunday only schedule \n", json.dumps(sunday_games, indent=4))
+
+# Save the full transformed data to a file
 save_to_file(transformed_data, f"week_{current_week}_schedule.json")
 
+# Save the Sunday-only games to a new file
+save_to_file(sunday_games, f"week_{current_week}_sunday_schedule.json")
+
 print("Data saved successfully!")
+
+
+
 
 #FOR LATER
 # =============================================================================
