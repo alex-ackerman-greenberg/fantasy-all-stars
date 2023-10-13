@@ -107,17 +107,18 @@ transformed_data = transform_event_data(original_data)
 # Extract Sunday-only games from the transformed data
 sunday_games = extract_sunday_games_from_transformed_data(transformed_data)
 
-# Print the transformed data
-print("Full week schedule \n", json.dumps(transformed_data, indent=4))
-print("Sunday only schedule \n", json.dumps(sunday_games, indent=4))
+#Main function to save the schedule files. This will only happen if this script is run directly.
+# I likely need to update this later if we have a secondary script that will automatically save schedules and prep a week.
+if __name__ == "__main__":
+    # Save the full transformed data to a file
+    save_to_file(transformed_data, f"week_{current_week}_schedule.json")
+    # Save the Sunday-only games to a new file
+    save_to_file(sunday_games, f"week_{current_week}_sunday_schedule.json")
 
-# Save the full transformed data to a file
-save_to_file(transformed_data, f"week_{current_week}_schedule.json")
-
-# Save the Sunday-only games to a new file
-save_to_file(sunday_games, f"week_{current_week}_sunday_schedule.json")
-
-print("Data saved successfully!")
+    # Print the transformed data
+    print("Full week schedule \n", json.dumps(transformed_data, indent=4))
+    print("Sunday only schedule \n", json.dumps(sunday_games, indent=4))
+    print("Data saved successfully!")
 
 
 
