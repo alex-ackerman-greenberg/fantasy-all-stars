@@ -1,10 +1,9 @@
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 from espn_api.football import League
-import time
 import pytz
+import time
 from datetime import datetime
-import schedule
 
 # ESPN League Details
 LEAGUE_ID = 935464
@@ -20,19 +19,64 @@ TAB_NAME = "Week 5 - Matchup (Original)"
 # Initialize ESPN League
 league = League(league_id=LEAGUE_ID, year=YEAR, espn_s2=ESPN_S2, swid=SWID)
 
+player_data_cache = {}
+
 # Fetch player data
 def get_player_data(player_name, week):
-    player = league.player_info(name=player_name)
-    if player:
-        points = player.stats.get(week, {}).get('points')
-        team_names = [team.team_name for team in league.teams if player.playerId in [p.playerId for p in team.roster]]
-        team_name = team_names[0] if team_names else None
-        if not team_name:
-            print(f"Warning: No team found for player: {player_name}")
-        return points, team_name
-    else:
-        print(f"Warning: No data found for player: {player_name}")
-        return None, None
+    # Check if data is in cache
+    if player_name in player_data_cache:
+        return player_data_cache[player_name]
+    
+    retries = 3  # specify the number of retries you want to allow
+    for _ in range(retries):
+        try:
+            player = league.player_info(name=player_name)
+            if player:
+                points = player.stats.get(week, {}).get('points')
+                team_names = [team.team_name for team in league.teams if player.playerId in [p.playerId for p in team.roster]]
+                team_name = team_names[0] if team_names else None
+                if not team_name:
+                    print(f"Warning: No team found for player: {player_name}")
+                
+                # Save the data to cache
+                player_data_cache[player_name] = (points, team_name)
+                return points, team_name
+            else:
+                print(f"Warning: No data found for player: {player_name}")
+                return None, None
+        except Exception as e:
+            print(f"Error encountered while fetching player data: {str(e)}. Retrying...")
+            time.sleep(5)  # wait for 5 seconds before retrying
+    print(f"Failed to retrieve data for player {player_name} after {retries} attempts.")
+    return None, None  # return None values if data fetch fails even after retries
+
+
+
+
+
+
+
+# Fetch player data
+def get_player_data(player_name, week):
+    retries = 3  # specify the number of retries you want to allow
+    for _ in range(retries):
+        try:
+            player = league.player_info(name=player_name)
+            if player:
+                points = player.stats.get(week, {}).get('points')
+                team_names = [team.team_name for team in league.teams if player.playerId in [p.playerId for p in team.roster]]
+                team_name = team_names[0] if team_names else None
+                if not team_name:
+                    print(f"Warning: No team found for player: {player_name}")
+                return points, team_name
+            else:
+                print(f"Warning: No data found for player: {player_name}")
+                return None, None
+        except Exception as e:
+            print(f"Error encountered while fetching player data: {str(e)}. Retrying...")
+            time.sleep(5)  # wait for 5 seconds before retrying
+    print(f"Failed to retrieve data for player {player_name} after {retries} attempts.")
+    return None, None  # return None values if data fetch fails even after retries
 
 # Update Google Sheet
 def update_sheet():
@@ -86,22 +130,3 @@ def update_sheet():
 #Main function that allows for manual sheet updates, if this script is run directly. If it is imported, this will not run.
 if __name__ == "__main__":
     update_sheet()
-
-# =============================================================================
-# #is it before 10pm MT?
-# def is_before_10pm():
-#     current_time_mountain = datetime.now(pytz.timezone('US/Mountain'))
-#     return current_time_mountain.hour < 22
-# =============================================================================
-
-
-# This will execute `my_job` every 10 minutes, but only if it's before 10pm MT
-# =============================================================================
-# schedule.every(10).minutes.do(lambda: update_sheet() if is_before_10pm() else None)
-# 
-# while True:
-#     # Run pending scheduled jobs (if any)
-#     schedule.run_pending()
-#     # Sleep for a while (e.g., 1 second) to avoid busy-waiting
-#     time.sleep(30)
-# =============================================================================
