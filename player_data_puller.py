@@ -14,7 +14,7 @@ SWID = "{4CF33657-E49C-468C-A2C4-C91A262AFDF8}"
 # Google Sheets Details
 CREDENTIALS_FILE = "scenic-crossbar-399110-e8bbb8903198.json"
 SHEET_NAME = "White Water Fantasy All-Stars"
-TAB_NAME = "Week 5 - Matchup (Original)"
+TAB_NAME = "Week 6 - Matchup"
 
 # Initialize ESPN League
 league = League(league_id=LEAGUE_ID, year=YEAR, espn_s2=ESPN_S2, swid=SWID)
@@ -25,7 +25,9 @@ player_data_cache = {}
 def get_player_data(player_name, week):
     # Check if data is in cache
     if player_name in player_data_cache:
-        return player_data_cache[player_name]
+        cached_data = player_data_cache[player_name]
+        if cached_data[1] is None:  # If the cached team value is None, skip this player
+            return cached_data
     
     retries = 3  # specify the number of retries you want to allow
     for _ in range(retries):
@@ -37,37 +39,11 @@ def get_player_data(player_name, week):
                 team_name = team_names[0] if team_names else None
                 if not team_name:
                     print(f"Warning: No team found for player: {player_name}")
+                    player_data_cache[player_name] = (None, None)  # Cache players with no teams
                 
-                # Save the data to cache
-                player_data_cache[player_name] = (points, team_name)
-                return points, team_name
-            else:
-                print(f"Warning: No data found for player: {player_name}")
-                return None, None
-        except Exception as e:
-            print(f"Error encountered while fetching player data: {str(e)}. Retrying...")
-            time.sleep(5)  # wait for 5 seconds before retrying
-    print(f"Failed to retrieve data for player {player_name} after {retries} attempts.")
-    return None, None  # return None values if data fetch fails even after retries
-
-
-
-
-
-
-
-# Fetch player data
-def get_player_data(player_name, week):
-    retries = 3  # specify the number of retries you want to allow
-    for _ in range(retries):
-        try:
-            player = league.player_info(name=player_name)
-            if player:
-                points = player.stats.get(week, {}).get('points')
-                team_names = [team.team_name for team in league.teams if player.playerId in [p.playerId for p in team.roster]]
-                team_name = team_names[0] if team_names else None
-                if not team_name:
-                    print(f"Warning: No team found for player: {player_name}")
+                # Save the data to cache ONLY if points and team_name are not None
+                if points is not None and team_name is not None:
+                    player_data_cache[player_name] = (points, team_name)
                 return points, team_name
             else:
                 print(f"Warning: No data found for player: {player_name}")
@@ -80,6 +56,10 @@ def get_player_data(player_name, week):
 
 # Update Google Sheet
 def update_sheet():
+    #empty the player points data from the cache before starting the run again. Leaves the player names and teams intact.
+    for player in player_data_cache:
+        player_data_cache[player]["points"] = None
+    
     # Setup Google Sheets API
     scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/spreadsheets", "https://www.googleapis.com/auth/drive.file", "https://www.googleapis.com/auth/drive"]
     creds = ServiceAccountCredentials.from_json_keyfile_name(CREDENTIALS_FILE, scope)
