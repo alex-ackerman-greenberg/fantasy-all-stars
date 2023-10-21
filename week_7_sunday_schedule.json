@@ -1,0 +1,92 @@
+{
+    "events": [
+        {
+            "name": "Las Vegas Raiders at Chicago Bears",
+            "shortName": "LV @ CHI",
+            "date": "2023-10-22T17:00Z",
+            "weekNumber": 7,
+            "gameState": "pre",
+            "id": "401547490"
+        },
+        {
+            "name": "Cleveland Browns at Indianapolis Colts",
+            "shortName": "CLE @ IND",
+            "date": "2023-10-22T17:00Z",
+            "weekNumber": 7,
+            "gameState": "pre",
+            "id": "401547484"
+        },
+        {
+            "name": "Buffalo Bills at New England Patriots",
+            "shortName": "BUF @ NE",
+            "date": "2023-10-22T17:00Z",
+            "weekNumber": 7,
+            "gameState": "pre",
+            "id": "401547485"
+        },
+        {
+            "name": "Washington Commanders at New York Giants",
+            "shortName": "WSH @ NYG",
+            "date": "2023-10-22T17:00Z",
+            "weekNumber": 7,
+            "gameState": "pre",
+            "id": "401547486"
+        },
+        {
+            "name": "Atlanta Falcons at Tampa Bay Buccaneers",
+            "shortName": "ATL @ TB",
+            "date": "2023-10-22T17:00Z",
+            "weekNumber": 7,
+            "gameState": "pre",
+            "id": "401547491"
+        },
+        {
+            "name": "Detroit Lions at Baltimore Ravens",
+            "shortName": "DET @ BAL",
+            "date": "2023-10-22T17:00Z",
+            "weekNumber": 7,
+            "gameState": "pre",
+            "id": "401547489"
+        },
+        {
+            "name": "Pittsburgh Steelers at Los Angeles Rams",
+            "shortName": "PIT @ LAR",
+            "date": "2023-10-22T20:05Z",
+            "weekNumber": 7,
+            "gameState": "pre",
+            "id": "401547492"
+        },
+        {
+            "name": "Arizona Cardinals at Seattle Seahawks",
+            "shortName": "ARI @ SEA",
+            "date": "2023-10-22T20:05Z",
+            "weekNumber": 7,
+            "gameState": "pre",
+            "id": "401547493"
+        },
+        {
+            "name": "Green Bay Packers at Denver Broncos",
+            "shortName": "GB @ DEN",
+            "date": "2023-10-22T20:25Z",
+            "weekNumber": 7,
+            "gameState": "pre",
+            "id": "401547487"
+        },
+        {
+            "name": "Los Angeles Chargers at Kansas City Chiefs",
+            "shortName": "LAC @ KC",
+            "date": "2023-10-22T20:25Z",
+            "weekNumber": 7,
+            "gameState": "pre",
+            "id": "401547488"
+        },
+        {
+            "name": "Miami Dolphins at Philadelphia Eagles",
+            "shortName": "MIA @ PHI",
+            "date": "2023-10-23T00:20Z",
+            "weekNumber": 7,
+            "gameState": "pre",
+            "id": "401547494"
+        }
+    ]
+}
