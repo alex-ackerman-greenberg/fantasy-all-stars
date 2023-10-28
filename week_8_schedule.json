@@ -1,0 +1,132 @@
+{
+    "events": [
+        {
+            "name": "Tampa Bay Buccaneers at Buffalo Bills",
+            "shortName": "TB @ BUF",
+            "date": "2023-10-27T00:15Z",
+            "weekNumber": 8,
+            "gameState": "post",
+            "id": "401547496"
+        },
+        {
+            "name": "Los Angeles Rams at Dallas Cowboys",
+            "shortName": "LAR @ DAL",
+            "date": "2023-10-29T17:00Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547505"
+        },
+        {
+            "name": "Minnesota Vikings at Green Bay Packers",
+            "shortName": "MIN @ GB",
+            "date": "2023-10-29T17:00Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547506"
+        },
+        {
+            "name": "Atlanta Falcons at Tennessee Titans",
+            "shortName": "ATL @ TEN",
+            "date": "2023-10-29T17:00Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547500"
+        },
+        {
+            "name": "New Orleans Saints at Indianapolis Colts",
+            "shortName": "NO @ IND",
+            "date": "2023-10-29T17:00Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547507"
+        },
+        {
+            "name": "New England Patriots at Miami Dolphins",
+            "shortName": "NE @ MIA",
+            "date": "2023-10-29T17:00Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547497"
+        },
+        {
+            "name": "New York Jets at New York Giants",
+            "shortName": "NYJ @ NYG",
+            "date": "2023-10-29T17:00Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547498"
+        },
+        {
+            "name": "Jacksonville Jaguars at Pittsburgh Steelers",
+            "shortName": "JAX @ PIT",
+            "date": "2023-10-29T17:00Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547499"
+        },
+        {
+            "name": "Philadelphia Eagles at Washington Commanders",
+            "shortName": "PHI @ WSH",
+            "date": "2023-10-29T17:00Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547508"
+        },
+        {
+            "name": "Houston Texans at Carolina Panthers",
+            "shortName": "HOU @ CAR",
+            "date": "2023-10-29T17:00Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547504"
+        },
+        {
+            "name": "Cleveland Browns at Seattle Seahawks",
+            "shortName": "CLE @ SEA",
+            "date": "2023-10-29T20:05Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547509"
+        },
+        {
+            "name": "Kansas City Chiefs at Denver Broncos",
+            "shortName": "KC @ DEN",
+            "date": "2023-10-29T20:25Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547502"
+        },
+        {
+            "name": "Baltimore Ravens at Arizona Cardinals",
+            "shortName": "BAL @ ARI",
+            "date": "2023-10-29T20:25Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547501"
+        },
+        {
+            "name": "Cincinnati Bengals at San Francisco 49ers",
+            "shortName": "CIN @ SF",
+            "date": "2023-10-29T20:25Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547503"
+        },
+        {
+            "name": "Chicago Bears at Los Angeles Chargers",
+            "shortName": "CHI @ LAC",
+            "date": "2023-10-30T00:20Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547510"
+        },
+        {
+            "name": "Las Vegas Raiders at Detroit Lions",
+            "shortName": "LV @ DET",
+            "date": "2023-10-31T00:15Z",
+            "weekNumber": 8,
+            "gameState": "pre",
+            "id": "401547511"
+        }
+    ]
+}
