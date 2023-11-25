@@ -1,0 +1,92 @@
+{
+    "events": [
+        {
+            "name": "New Orleans Saints at Atlanta Falcons",
+            "shortName": "NO @ ATL",
+            "date": "2023-11-26T18:00Z",
+            "weekNumber": 12,
+            "gameState": "pre",
+            "id": "401547559"
+        },
+        {
+            "name": "Pittsburgh Steelers at Cincinnati Bengals",
+            "shortName": "PIT @ CIN",
+            "date": "2023-11-26T18:00Z",
+            "weekNumber": 12,
+            "gameState": "pre",
+            "id": "401547554"
+        },
+        {
+            "name": "Carolina Panthers at Tennessee Titans",
+            "shortName": "CAR @ TEN",
+            "date": "2023-11-26T18:00Z",
+            "weekNumber": 12,
+            "gameState": "pre",
+            "id": "401547561"
+        },
+        {
+            "name": "Tampa Bay Buccaneers at Indianapolis Colts",
+            "shortName": "TB @ IND",
+            "date": "2023-11-26T18:00Z",
+            "weekNumber": 12,
+            "gameState": "pre",
+            "id": "401547556"
+        },
+        {
+            "name": "New England Patriots at New York Giants",
+            "shortName": "NE @ NYG",
+            "date": "2023-11-26T18:00Z",
+            "weekNumber": 12,
+            "gameState": "pre",
+            "id": "401547560"
+        },
+        {
+            "name": "Jacksonville Jaguars at Houston Texans",
+            "shortName": "JAX @ HOU",
+            "date": "2023-11-26T18:00Z",
+            "weekNumber": 12,
+            "gameState": "pre",
+            "id": "401547555"
+        },
+        {
+            "name": "Cleveland Browns at Denver Broncos",
+            "shortName": "CLE @ DEN",
+            "date": "2023-11-26T21:05Z",
+            "weekNumber": 12,
+            "gameState": "pre",
+            "id": "401547563"
+        },
+        {
+            "name": "Los Angeles Rams at Arizona Cardinals",
+            "shortName": "LAR @ ARI",
+            "date": "2023-11-26T21:05Z",
+            "weekNumber": 12,
+            "gameState": "pre",
+            "id": "401547562"
+        },
+        {
+            "name": "Kansas City Chiefs at Las Vegas Raiders",
+            "shortName": "KC @ LV",
+            "date": "2023-11-26T21:25Z",
+            "weekNumber": 12,
+            "gameState": "pre",
+            "id": "401547557"
+        },
+        {
+            "name": "Buffalo Bills at Philadelphia Eagles",
+            "shortName": "BUF @ PHI",
+            "date": "2023-11-26T21:25Z",
+            "weekNumber": 12,
+            "gameState": "pre",
+            "id": "401547558"
+        },
+        {
+            "name": "Baltimore Ravens at Los Angeles Chargers",
+            "shortName": "BAL @ LAC",
+            "date": "2023-11-27T01:20Z",
+            "weekNumber": 12,
+            "gameState": "pre",
+            "id": "401547564"
+        }
+    ]
+}
